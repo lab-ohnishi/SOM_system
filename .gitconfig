@@ -1,0 +1,19 @@
+# This is Git's per-user configuration file.
+[user]
+# Please adapt and uncomment the following lines:
+#	name = avenue2199
+#	email = n232074s@mail.kyutech.jp
+[user]
+	name = avenue
+	email = n232074s@mail.kyutech.jp
+[core]
+[core]
+	excludesfile = /Users/AVENUE-Macbook/.gitignore
+	repositoryformatversion = 0
+	filemode = true
+	bare = false
+	logallrefupdates = true
+[remote "origin"]
+	url = git@github.com:lab-ohnishi/SOM_system.git
+	fetch = +refs/heads/*:refs/remotes/origin/*
+
