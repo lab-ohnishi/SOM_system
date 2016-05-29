@@ -1,21 +1,54 @@
-<form method="POST" action="/auth/login">
-		{!! csrf_field() !!}
+@extends('auth')
+@section('content')
+<div class="page-header">
+	<div class="container">
+		<h2>Login</h2>
+	</div>
+</div>
+<div class="container">
+	<div class="row">
+		<div class="col-md-6 col-md-offset-3">
+			<div class="panel-body">
+				@if (count($errors) > 0)
+				<div class="alert alert-danger">
+					<strong>Error!</strong>　ログインできませんでした。
+				</div>
+				@endif
 
-		<div>
-				メールアドレス
-	<input type="email" name="email" value="{{ old('email') }}">
-		</div>
+				<div class="form-horizontal">
+					{!! Form::open() !!}
+					<div class="form-group">
+						{!! Form::label('email', 'メールアドレス', array('class' => 'col-md-3 text-right')) !!}
+						<div class="col-md-9">
+							{!! Form::input('email','email','', array('class' => 'form-control')) !!}
+						</div>
 
-		<div>
-				パスワード
-	<input type="password" name="password" id="password">
-		</div>
+					</div>
+					<div class="form-group">
+						{!! Form::label('password', 'パスワード', array('class' => 'col-md-3 text-right')) !!}
+						<div class="col-md-9">
+							{!! Form::input('password','password','', array('class' => 'form-control')) !!}
+						</div>
 
-		<div>
-	<input type="checkbox" name="remember"> ログインを継続する
-		</div>
 
-		<div>
-	<button type="submit">ログイン</button>
+					</div>
+					<div class="form-group">
+						<div class="col-md-offset-3 col-md-9">
+							{!! Form::input('checkbox','remember',null,array('id'=>'remember')) !!}　{!! Form::label('remember', 'パスワードを記憶する') !!}
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-md-offset-3 col-md-9">
+							{!! Form::submit('ログイン', array('class' => 'btn btn-primary')) !!}<br><br>
+							<a href="{{ url('password/email') }}">パスワードを再発行する</a>
+						</div>
+					</div>
+					{!! Form::close() !!}
+				</div>
+			</div>
 		</div>
-</form>
+	</div>
+</div>
+@endsection
+
+
