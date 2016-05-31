@@ -13,9 +13,13 @@ class CreateEvaluationTable extends Migration
     public function up()
     {
         Schema::create('evaluation', function (Blueprint $table) {
+            $table->integer('relation_id')->unsigned();
+            $table->integer('perspective_id')->unsigned();
+            $table->string('pers_value');
+            
             $table->foreign('relation_id')->references('id')->on('relation');
             $table->foreign('perspective_id')->references('id')->on('perspective');
-            $teble->integer('value');
+            
         });
     }
 

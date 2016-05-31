@@ -14,8 +14,8 @@ class CreateRelationTable extends Migration
     {
         Schema::create('relation', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('from');
-            $table->string('target');
+            $table->string('from_name');
+            $table->string('target_name');
         });
     }
 
