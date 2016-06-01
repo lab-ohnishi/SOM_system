@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePerspectiveTable extends Migration
+class CreatePerspectivesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,9 +12,9 @@ class CreatePerspectiveTable extends Migration
      */
     public function up()
     {
-        Schema::create('perspective', function (Blueprint $table) {
-            $table->increments('id');
-            $table->String('name');
+        Schema::create('perspectives', function (Blueprint $table) {
+          $table->increments('id');
+          $table->string('name');
         });
     }
 
@@ -25,6 +25,6 @@ class CreatePerspectiveTable extends Migration
      */
     public function down()
     {
-        Schema::drop('perspective');
+        Schema::drop('perspectives');
     }
 }
