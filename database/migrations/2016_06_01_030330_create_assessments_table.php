@@ -16,8 +16,7 @@ class CreateAssessmentsTable extends Migration
             $table->increments('id');
             $table->integer('relations_id')->unsigned();
             $table->integer('perspectives_id')->unsigned();
-            $table->string('good_comments');
-            $table->string('bad_comments');
+            $table->string('pers_value');
             $table->integer('times');
 
             $table->foreign('relations_id')->references('id')->on('relations');

@@ -14,7 +14,7 @@ class CreatePerspectivesTable extends Migration
     {
         Schema::create('perspectives', function (Blueprint $table) {
           $table->increments('id');
-          $table->string('name');
+          $table->string('assessment_name');
         });
     }
 
