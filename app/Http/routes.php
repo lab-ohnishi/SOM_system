@@ -13,7 +13,7 @@
 Route::get('eva_inp','EvaluatedInputsController@index');
 
 Route::get('/', function () {
-    return view('auth/login');
+    return view('/welcome');
 });
 
 Route::auth();
