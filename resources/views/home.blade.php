@@ -19,8 +19,8 @@
       <tr>
         <th scope="row">1</th>
 					<td>2016年＿月＿日（）</td>
-					<td><a class="btn btn-success btn-block" href="eva_inp">入力</a></td>
-          <td><a class="btn btn-danger btn-block" href="eva_inp">結果</a></td>
+					<td><a class="btn btn-success btn-block" href="assessment_inp">入力</a></td>
+          <td><a class="btn btn-danger btn-block" href="assessment_inp">結果</a></td>
       </tr>
       <tr>
         <th scope="row">2</th>

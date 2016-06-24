@@ -10,7 +10,7 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-Route::get('eva_inp','EvaluatedInputsController@index');
+Route::get('assessment_inp','AssessmentInputController@index');
 
 Route::get('/', function () {
     return view('/welcome');
