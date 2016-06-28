@@ -1,10 +1,11 @@
 @extends('layouts.app')
 
+@section('page_title')
+	Inputs
+@stop
+
 @section('content')
 <div class="container">
-	<div class="row">		
-		<h1>評価入力画面</h1>
-	</div>
+<h1>相互評価入力</h1>
 </div>
-
 @endsection
