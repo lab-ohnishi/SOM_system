@@ -14,8 +14,8 @@ class CreateConfigrationsTable extends Migration
     {
         Schema::create('configurations', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
-            $table->integer('value');
+            $table->integer('assessment_name_num');
+            $table->integer('pers_value_num');
 
         });
     }
