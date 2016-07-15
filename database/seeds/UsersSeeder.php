@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use app\User;
+use App\User;
 
 class UsersSeeder extends Seeder
 {
@@ -13,7 +13,7 @@ class UsersSeeder extends Seeder
 	public function run()
 	{
 		//delete all data.
-		User::truncate();
+		App\User::truncate();
 
 		//faker
 		$faker = Faker\Factory::create('ja_JP');
@@ -21,7 +21,7 @@ class UsersSeeder extends Seeder
 		//insert
 		for($i=0;$i<25;$i++)
 		{
-			$user = User::create();
+			$user = App\User::create();
 
 			$user->name = $faker->userName();
 			$user->email = $faker->unique()->email();
