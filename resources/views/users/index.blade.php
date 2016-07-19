@@ -10,7 +10,17 @@
 
     <!-- table -->
     <table class="table table-striped">
-
+			<thead>
+				<tr>
+					<th>ID</th>	
+          <th>名前</th>
+					<th>アドレス</th>
+					<th>詳細</th>
+					<th>編集</th>
+					<th>削除</th>
+				</tr>
+			</thead>
+			<tbody>
     <!-- loop -->
     @foreach($users as $user)
         <tr>
@@ -26,10 +36,11 @@
                 </form>
             </td>
         </tr>
-    @endforeach
+		@endforeach
+		</tbody>
     </table>
 
     <!-- page control -->
-    {!! $users->render() !!}
+   {!! $users->render() !!}
 </div>
 @endsection
