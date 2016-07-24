@@ -7,7 +7,7 @@ use App\Http\Controllers\Controller;
 class AssessmentInputController extends Controller {
 	public function index()
 	{
-		$perspectives = DB::table('perspectives')->get();
+	/*	$perspectives = DB::table('perspectives')->get();
 		$relations = DB::table('relations')->get();
 		$assessments = DB::table('assessments')->get();
 		$comments = DB::table('comments')->get();
@@ -18,6 +18,7 @@ class AssessmentInputController extends Controller {
 		return view('assessments.assessment_inp')->with('assessments',$assessments);
 		return view('comments.assessment_inp')->with('comments',$comments);
 		return view('configurations.assessment_inp')->with('configurations',$configurations);
+	 */
 		return view('assessment_inp');
 	}
 }
