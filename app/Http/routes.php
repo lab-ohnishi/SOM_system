@@ -21,20 +21,27 @@ Route::get('/home', 'HomeController@index');
 
 Route::get('/admin', 'AdminController@index');
 
-Route::get('/admin/login', function() {
-    $auth = Auth::guard('admin');
-    $credentials = [
-    'email' => 'admin1@example.com',
-    'password' => 'password',
-    ];
+Route::get('/admin/login',function(){
 
-    return $auth->attempt($credentials) ? 'Admin Success' : 'Admin Failure';
+    //Guardを選択(admin)
+    $auth = Auth::guard('admin');
+
+    //認証
+    if($auth->attempt(['email'=>'admin1@admin.com','password'=>'admin1']))
+    {
+    echo "You are Admin!";
+    }else{
+    echo "You are not Admin!";
+    }
+
+    return;
+
     });
 
 Route::get('/user/login', function() {
-    $auth = Auth::guard('user');
+    $auth = Auth::guard('users');
     $credentials = [
-    'email' => 'user1@test.com',
+    'email' => 'test1@example.com',
     'password' => 'password',
     ];
 

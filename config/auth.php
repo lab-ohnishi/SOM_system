@@ -1,42 +1,42 @@
 <?php
 
 return [
-'defaults' => [
-'guard' => 'user',
-  'passwords' => 'user',
+  'defaults' => [
+    'guard' => 'users',
+    'passwords' => 'users',
   ],
   'guards' => [
-  'user' => [
-  'driver' => 'session',
-  'provider' => 'user',
-  ],
-  'admin' => [
-  'driver' => 'session',
-  'provider' => 'admin',
-  ],
+    'users' => [
+      'driver' => 'session',
+      'provider' => 'users_provider',
+    ],
+    'admin' => [
+      'driver' => 'session',
+      'provider' => 'admin_users_provider',
+    ],
   ],
   'providers' => [
-  'user' => [
-  'driver' => 'eloquent',
-  'model' => App\User::class,
-  ],
-  'admin' => [
-  'driver' => 'eloquent',
-  'model' => App\Admin::class,
-  ],
+    'users_provider' => [
+      'driver' => 'eloquent',
+      'model' => App\User::class,
+    ],
+    'admin_users_provider' => [
+      'driver' => 'eloquent',
+      'model' => App\Admin::class,
+    ],
   ],
   'passwords' => [
-  'user' => [
-  'provider' => 'user',
-  'email' => 'user.auth.emails.password',
-  'table' => 'multiauth_password_resets',
-  'expire' => 60,
-  ],
-  'admin' => [
-  'provider' => 'admin',
-  'email' => 'user.auth.emails.password',
-  'table' => 'multiauth_password_resets',
-  'expire' => 60,
-  ],
+    'users' => [
+      'provider' => 'users_provider',
+      'email' => 'user.auth.emails.password',
+      'table' => 'multiauth_password_resets',
+      'expire' => 60,
+    ],
+    'admin' => [
+      'provider' => 'admin_users_provider',
+      'email' => 'user.auth.emails.password',
+      'table' => 'multiauth_password_resets',
+      'expire' => 60,
+    ],
   ],
   ];

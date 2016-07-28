@@ -1,5 +1,5 @@
 <?php
-
+use App\Admin;
 use Illuminate\Database\Seeder;
 
 class AdminTableSeeder extends Seeder
@@ -7,14 +7,14 @@ class AdminTableSeeder extends Seeder
 
   public function run()
   {
+    DB::statement('SET FOREIGN_KEY_CHECKS=0;');
     DB::table('admins')->truncate();
 
-    for ($i = 1; $i < 100; $i++) {
-      DB::table('admins')->insert([
-          'name' => 'テスト' . $i,
-          'email' => 'admin' . $i . '@example.com',
-          'password' => bcrypt('password'),
-          ]);
-    }
+    DB::table('admins')->insert([
+        'name' => 'admin1',
+        'email' => 'admin1@admin.com',
+        'password' => bcrypt('admin1'),
+    ]);
+    DB::statement('SET FOREIGN_KEY_CHECKS=1;');
   }
 }
