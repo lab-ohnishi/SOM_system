@@ -40,7 +40,7 @@
 
                 <!-- Branding Image -->
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    Laravel
+                    SOM
                 </a>
             </div>
 
@@ -48,13 +48,22 @@
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
                     <li><a href="{{ url('/home') }}">Home</a></li>
+                    @if (Auth::guard('admin')->guest())
+                    @else
+                    <li><a href="{{ url('admin/home') }}">Admin's Home</a></li>
+                    @endif
                 </ul>
 
                 <!-- Right Side Of Navbar -->
                 <ul class="nav navbar-nav navbar-right">
                     <!-- Authentication Links -->
-                    @if (Auth::guest())
+                    @if (Auth::guard('users')->guest())
                         <li><a href="{{ url('/login') }}">Login</a></li>
+                        @if (Auth::guard('admin')->guest())
+                        <li><a href="{{ url('/admin/login') }}">Admin's Login</a></li>
+                        @else
+                        <li><a href="{{ url('/admin/logout') }}">Admin's Logout</a></li>
+                        @endif
                         <li><a href="{{ url('/register') }}">Register</a></li>
                     @else
                         <li class="dropdown">
