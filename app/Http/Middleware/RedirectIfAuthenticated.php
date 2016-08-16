@@ -22,7 +22,10 @@ class RedirectIfAuthenticated
       if($guard == 'admin'){
         return redirect('/admin/home/');
       }
-      return redirect('/');
+      if($guard == 'users'){
+        return redirect('/home');
+      }
+      return redirect('/home');
     }
 
     return $next($request);

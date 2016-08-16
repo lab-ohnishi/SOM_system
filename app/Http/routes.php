@@ -20,15 +20,19 @@ Route::group(['middleware' => ['web']], function () {
     Route::group(['middleware' => 'auth:admin'], function () {
         Route::get('/admin', 'AdminHomeController@index');
         Route::get('/admin/home','AdminHomeController@index');
+        Route::get('/admin/post','AdminPostController@index');
         });
 
     Route::get('/admin/logout','AdminAuthController@logout');
 
     // user
     Route::auth();
-
-    Route::get('/home', 'HomeController@index');
+    
     Route::get('/', function () {
         return view('welcome');
         });
+
+    Route::group(['middleware' => 'auth:users'], function () {
+    Route::get('/home', 'HomeController@index');
+    });
 });

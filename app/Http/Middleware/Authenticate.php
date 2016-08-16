@@ -25,7 +25,10 @@ class Authenticate
         if($guard == 'admin'){
           return redirect()->guest('/admin/login');
         }
-        return redirect()->guest('login');
+        if($guard == 'users'){
+          return redirect()->guest('login');
+        }
+        return redirect('/home');
       }
     }
 
