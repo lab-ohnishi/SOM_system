@@ -26,7 +26,11 @@
     </style>
 </head>
 <body id="app-layout">
+    @if (Auth::guard('admin')->guest())
     <nav class="navbar navbar-default navbar-static-top">
+    @else
+    <nav class="navbar navbar-inverse navbar-static-top">
+    @endif
         <div class="container">
             <div class="navbar-header">
 
@@ -40,22 +44,28 @@
 
                 <!-- Branding Image -->
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    Laravel
+                    SOM
                 </a>
             </div>
 
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
-                    <li><a href="{{ url('/home') }}">Home</a></li>
+                    @if (Auth::guard('admin')->guest())
+                        <li><a href="{{ url('/home') }}">Home</a></li>
+                    @else
+                        <li><a href="{{ url('admin/home') }}">Admin's Home</a></li>
+                    @endif
                 </ul>
 
                 <!-- Right Side Of Navbar -->
                 <ul class="nav navbar-nav navbar-right">
                     <!-- Authentication Links -->
-                    @if (Auth::guest())
-                        <li><a href="{{ url('/login') }}">Login</a></li>
-                        <li><a href="{{ url('/register') }}">Register</a></li>
+                    @if (Auth::guard('users')->guest())
+                        @if (Auth::guard('admin')->guest())
+                            <li><a href="{{ url('/login') }}">User's Login</a></li>
+                            <li><a href="{{ url('/register') }}">User's Register</a></li>
+                        @endif
                     @else
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -64,6 +74,19 @@
 
                             <ul class="dropdown-menu" role="menu">
                                 <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
+                            </ul>
+                        </li>
+                    @endif
+                    @if (Auth::guard('admin')->guest())
+                    @else
+
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                {{ Auth::guard('admin')->user()->name }} <span class="caret"></span>
+                            </a>
+
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="{{ url('admin/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Admin's Logout</a></li>
                             </ul>
                         </li>
                     @endif
