@@ -10,9 +10,10 @@
 | and give it the controller to call when that URI is requested.
 |
 */
+Route::get('assessment_inp','AssessmentInputController@index');
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('/welcome');
 });
 
 Route::auth();
